@@ -6,9 +6,54 @@ Roll is a node.js package for rolling dice and adding modifiers (such as "2d6+1"
 
     $ npm install roll
 
-## Quick Start
+## How To Use
 
-TBD
+Rolling dice:
+
+    var roll = require('roll');
+    var twoTwenties = roll.roll('2d20');
+    console.log(twoTwenties.result); //random number between 2 and 40 (inclusive)
+
+Rolling a percentage:
+
+    var roll = require('roll');
+    var chance = roll.roll('d%'); //same as '1d100', 'd100', or '1d%'
+    console.log(chance.result); //random number between 1 and 100 (inclusive)
+
+Simple calculation (+, -, *, /):
+
+    var roll = require('roll');
+    var attack = roll.roll('2d6+2');
+    console.log(attack.result); //random number between 3 and 8 (inclusive)
+
+Seeing what was rolled, rather than the sum:
+
+    var roll = require('roll');
+    var yahtzee = roll.roll('5d6');
+    console.log(yahtzee.rolled); //yahtzee.rolled will return something like [5, 2, 4, 6, 1] rather than the sum
+
+Getting the highest three dice of the set:
+
+    var roll = require('roll');
+    var pickBestTwo = roll.roll('6d20b3'); //roll 6 dice and give me the 3 highest
+    console.log(pickBestTwo.calculations[1]); //pickBestTwo.calculations[0] is the same as .result, .calculations[1] is prior to the sum operation
+
+Processing rolls without parsing a string:
+
+    var roll = require('roll');
+    var attack = roll.roll({
+        quantity: 2,
+        sides: 6,
+        transformations: [ //can list n-number of pipeline operations to perform on the result
+          'sum', //take the array of rolled dice and sum them together
+          ['add', 2] //add 2 to the sum
+        ]
+    });
+    console.log(attack.result); //random number between 3 and 8 (inclusive)
+
+## Credits
+
+Inspired by [Phillip Newton's Games::Dice](http://search.cpan.org/~pne/Games-Dice-0.02/Dice.pm).
 
 ## License
 

@@ -28,7 +28,7 @@ var transformationKeys = {
       ['bestOf', value],
       'sum'
     ];
-  },
+  }
 };
 
 var transformationFunctions = {
@@ -42,6 +42,16 @@ var transformationFunctions = {
   'bestOf': function(rolledDice, value){
     var sorted = rolledDice.sort(function(a,b){
       return b - a;
+    });
+    var result = [];
+    for(var i = 0; i < sorted.length && i < (value / 1); i++)
+      result.push(sorted[i]);
+    return result;
+  },
+  
+  'worstOf': function(rolledDice, value){
+    var sorted = rolledDice.sort(function(a,b){
+      return a - b;
     });
     var result = [];
     for(var i = 0; i < sorted.length && i < (value / 1); i++)
