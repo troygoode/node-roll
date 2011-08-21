@@ -51,6 +51,35 @@ Processing rolls without parsing a string:
     });
     console.log(attack.result); //random number between 3 and 8 (inclusive)
 
+Using custom transformations:
+
+    var roll = require('roll');
+    var dropOnes = function(result){
+      var nextResult = [];
+      for(var i = 0; i < result.length; i++)
+        if(result[i] !== 1)
+          nextResult.push(result[i]);
+      return nextResult;
+    };
+    var noOnes = roll.roll({
+      quantity: 5,
+      sides: 4,
+      transformations: [
+        dropOnes, // remove any 1s because we have teh lucky bootz
+        'sum'
+      ]
+    });
+
+Using a custom seed:
+
+    var srand = require('srand'); //https://github.com/isaacs/node-srand (npm install srand)
+    srand.seed(1000);
+    
+    var roll = require('roll');
+    roll.random = function(){ return srand.rand(); };
+    
+    console.log(roll.roll('2d6+5').result);
+
 ## Credits
 
 Inspired by [Phillip Newton's Games::Dice](http://search.cpan.org/~pne/Games-Dice-0.02/Dice.pm).

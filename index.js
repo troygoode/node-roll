@@ -113,14 +113,18 @@ var roll = module.exports = {
     for(var i = 0; i < input.transformations.length; i++){
       calculations.unshift(result);
       var transformation = input.transformations[i];
-      var transformationFunction = transformationFunctions[
-        typeof transformation === 'string'
+      var transformationFunction =
+        typeof transformation === 'function'
           ? transformation
-          : transformation[0]
-      ];
+          : transformationFunctions[
+            typeof transformation === 'string'
+              ? transformation
+              : transformation[0]
+          ];
       result = transformationFunction(
         result,
-        typeof transformation === 'string'
+        typeof transformation === 'string' ||
+        typeof transformation === 'function'
           ? null
           : transformation[1]
       );
