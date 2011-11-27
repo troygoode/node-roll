@@ -63,7 +63,7 @@ var yahtzee = roll.roll('5d6');
 console.log(yahtzee.rolled); //yahtzee.rolled will return something like [5, 2, 4, 6, 1] rather than the sum
 ```
 
-Getting the highest three dice of the set:
+Getting the highest two dice of the set:
 
 ```javascript
 var roll = require('roll');
