@@ -2,13 +2,34 @@
 
 Roll is a node.js package for rolling dice and adding modifiers (such as "2d6+1").
 
-## Installation
+## How To Use (From Shell)
+
+### Installation
+
+```bash
+$ npm install roll -g
+```
+
+### Usage
+
+```bash
+$ roll 2d6+3
+9
+$ roll d20
+15
+$ roll d%
+99
+```
+
+## How To Use (As Library)
+
+### Installation
 
 ```bash
 $ npm install roll
 ```
 
-## How To Use
+### Usage
 
 Rolling dice:
 
