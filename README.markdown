@@ -67,7 +67,7 @@ Getting the highest three dice of the set:
 
 ```javascript
 var roll = require('roll');
-var pickBestTwo = roll.roll('6d20b3'); //roll 6 dice and give me the 3 highest
+var pickBestTwo = roll.roll('6d20b2'); //roll 6 dice and give me the 2 highest
 console.log(pickBestTwo.calculations[1]); //pickBestTwo.calculations[0] is the same as .result, .calculations[1] is prior to the sum operation
 ```
 
