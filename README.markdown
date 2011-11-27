@@ -31,7 +31,15 @@ $ npm install roll
 
 ### Usage
 
-Rolling dice:
+Rolling a single die:
+
+```javascript
+var roll = require('roll');
+var oneDie = roll.roll('d6');
+console.log(oneDie.result); //random number between 1 and 6 (inclusive)
+```
+
+Rolling multiple dice:
 
 ```javascript
 var roll = require('roll');
