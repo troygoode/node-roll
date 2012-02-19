@@ -1,7 +1,7 @@
 {
   "author": "Troy Goode <troygoode@gmail.com> (https://github.com/troygoode/)",
   "name": "roll",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "node.js package for rolling dice and adding modifiers. ex: 2d6+1",
   "keywords": ["roll", "random", "dice", "games", "rpg", "role playing"],
   "homepage": "https://github.com/troygoode/node-roll/",
