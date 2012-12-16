@@ -23,7 +23,7 @@ $ roll d%
 
 ## How To Use (As Library)
 
-### Installation
+### Installation (via [npm](https://npmjs.org/package/roll))
 
 ```bash
 $ npm install roll
