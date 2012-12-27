@@ -1,29 +1,31 @@
 var should = require('should')
   , srand = require('srand')
-  , roll = require('../lib');
+  , roll = require('../lib')
+  , randomSet = [
+    .24,
+    .62
+  ]
+  , randomPointer = 0;
 
 // can only test this library if we make things not random
 roll.random = function(){
-  var r = srand.random();
-  console.log(r);
-  return r;
-  //return srand.random();
+  return randomSet[randomPointer++];
 };
 
 describe('roll', function(){
   beforeEach(function(){
-    srand.seed(123);
+    randomPointer = 0;
   });
 
   it('addition works', function(){
     var result = roll.roll('2d20+3');
     console.log(result);
-    result.result.should.equal(8);
+    result.result.should.equal(21);
   });
 
   it('subtraction works', function(){
     var result = roll.roll('2d20-3');
     console.log(result);
-    result.result.should.equal(2);
+    result.result.should.equal(15);
   });
 });
