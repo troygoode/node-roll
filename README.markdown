@@ -2,6 +2,8 @@
 
 Roll is a node.js package for rolling dice and adding modifiers (such as "2d6+1").
 
+[![build status](https://secure.travis-ci.org/TroyGoode/node-roll.png)](http://travis-ci.org/TroyGoode/node-roll)
+
 ## How To Use (From Shell)
 
 ### Installation (via [npm](https://npmjs.org/package/roll))
@@ -119,7 +121,7 @@ Using a custom seed:
 var srand = require('srand'); //https://github.com/isaacs/node-srand (npm install srand)
 srand.seed(1000);
     
-roll.random = function(){ return srand.rand(); };
+roll.random = function(){ return srand.random(); };
     
 console.log(roll.roll('2d6+5').result);
 ```
