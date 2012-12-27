@@ -3,7 +3,12 @@ var should = require('should')
   , roll = require('../lib');
 
 // can only test this library if we make things not random
-roll.random = function(){ return srand.random(); };
+roll.random = function(){
+  var r = srand.random();
+  console.log(r);
+  return r;
+  //return srand.random();
+};
 
 describe('roll', function(){
   beforeEach(function(){
@@ -12,11 +17,13 @@ describe('roll', function(){
 
   it('addition works', function(){
     var result = roll.roll('2d20+3');
+    console.log(result);
     result.result.should.equal(8);
   });
 
   it('subtraction works', function(){
     var result = roll.roll('2d20-3');
+    console.log(result);
     result.result.should.equal(2);
   });
 });
