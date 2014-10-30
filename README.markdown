@@ -38,7 +38,8 @@ $ npm install roll
 Get an instance of the library:
 
 ```javascript
-var roll = require('roll');
+var Roll = require('roll'),
+  roll = new Roll();
 ```
 
 Rolling a single die:
@@ -100,12 +101,10 @@ console.log(attack.result); //random number between 3 and 8 (inclusive)
 Using custom transformations:
 
 ```javascript
-var dropOnes = function(result){
-  var nextResult = [];
-  for(var i = 0; i < result.length; i++)
-    if(result[i] !== 1)
-      nextResult.push(result[i]);
-  return nextResult;
+var dropOnes = function(results){
+  return results.filter(function (result) {
+    return result !== 1;
+  });
 };
 var noOnes = roll.roll({
   quantity: 5,
@@ -123,7 +122,9 @@ Using a custom seed:
 var srand = require('srand'); //https://github.com/isaacs/node-srand (npm install srand)
 srand.seed(1000);
 
-roll.random = function(){ return srand.random(); };
+roll = new Roll(function () {
+  return srand.random();
+});
 
 console.log(roll.roll('2d6+5').result);
 ```

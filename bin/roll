@@ -1,2 +1,19 @@
 #!/usr/bin/env node
-console.log(require(__dirname + '/../lib/index').roll(process.argv.slice(2)[0]).result);
+
+(function () {
+  'use strict';
+
+  var Roll = require(__dirname + '/../lib/index'),
+    roll = new Roll(),
+    input = process.argv.slice(2)[0];
+
+  try {
+    console.log(roll.roll(input).result);
+    process.exit(0);
+  } catch (e) {
+    console.error(e.message);
+    process.exit(1);
+  }
+
+}());
+
