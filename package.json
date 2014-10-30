@@ -1,9 +1,16 @@
 {
   "name": "roll",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "author": "Troy Goode <troygoode@gmail.com> (https://github.com/troygoode/)",
   "description": "node.js package for rolling dice and adding modifiers. ex: 2d6+1",
-  "keywords": ["roll", "random", "dice", "games", "rpg", "role playing"],
+  "keywords": [
+    "roll",
+    "random",
+    "dice",
+    "games",
+    "rpg",
+    "role playing"
+  ],
   "homepage": "https://github.com/troygoode/node-roll/",
   "repository": {
     "type": "git",
@@ -17,14 +24,21 @@
     }
   ],
   "licenses": [
-    {"type": "MIT", "url": "http://www.opensource.org/licenses/mit-license.php"}
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
   ],
-  "bugs": { "url": "https://github.com/TroyGoode/node-roll/issues" },
+  "bugs": {
+    "url": "https://github.com/TroyGoode/node-roll/issues"
+  },
   "main": "./lib/index.js",
   "engines": {
     "node": ">=0.10.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "require-directory": "^2.0.0"
+  },
   "devDependencies": {
     "lint": "^1.1.2",
     "mocha": "^1.18.2",
