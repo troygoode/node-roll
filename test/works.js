@@ -29,8 +29,8 @@ describe('roll', function(){
 
   it('validates input', function(){
     (function(){
-      roll.roll('garbage')
-    }).should["throw"]("Invalid input: garbage");
+      roll.roll('garbage');
+    }).should.throw(roll.InvalidInputError);
   });
 
   it('exposes validation', function(){
@@ -38,3 +38,4 @@ describe('roll', function(){
     roll.validate('garbage').should.equal(false);
   });
 });
+

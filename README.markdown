@@ -131,11 +131,11 @@ console.log(roll.roll('2d6+5').result);
 Validating user input:
 
 ```javascript
-userInput = "garbage"
-valid = roll.validate(userInput);
+var userInput = 'this isn\'t a valid roll',
+  valid = roll.validate(userInput);
 
 if (!valid) {
-  console.error(userInput + " is not valid!");
+  console.error('"%s" is not a valid input string for node-roll!', userInput);
 }
 ```
 
@@ -150,3 +150,4 @@ Inspired by [Phillip Newton's Games::Dice](http://search.cpan.org/~pne/Games-Dic
 ## Author
 
 [Troy Goode](https://github.com/TroyGoode) ([troygoode@gmail.com](mailto:troygoode@gmail.com))
+
