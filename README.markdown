@@ -122,10 +122,21 @@ Using a custom seed:
 ```javascript
 var srand = require('srand'); //https://github.com/isaacs/node-srand (npm install srand)
 srand.seed(1000);
-    
+
 roll.random = function(){ return srand.random(); };
-    
+
 console.log(roll.roll('2d6+5').result);
+```
+
+Validating user input:
+
+```javascript
+userInput = "garbage"
+valid = roll.validate(userInput);
+
+if (!valid) {
+  console.error(userInput + " is not valid!");
+}
 ```
 
 ## Credits
