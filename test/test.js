@@ -19,7 +19,10 @@
   describe('roll', function () {
 
     beforeEach(random.reset.bind(random));
-
+it('1d20+1d20', function () {
+  var result = roll.roll('1d20+1d20');
+  result.result.should.equal(18);
+});
     it('d20', function () {
       var result = roll.roll('d20');
       result.rolled.length.should.equal(1);
