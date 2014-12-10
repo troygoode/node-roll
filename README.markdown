@@ -56,6 +56,13 @@ var twoTwenties = roll.roll('2d20');
 console.log(twoTwenties.result); //random number between 2 and 40 (inclusive)
 ```
 
+Rolling multiple sets of dice:
+
+```javascript
+var bunchOfDice = roll.roll('2d20+1d12');
+console.log(bunchOfDice.result); //random number between 3 and 52 (inclusive)
+```
+
 Rolling a percentage:
 
 ```javascript
