@@ -55,7 +55,7 @@
     it('d%', function () {
       var result = roll.roll('d%');
       result.rolled.length.should.equal(1);
-      result.rolled[0][0].should.equal(25);
+      result.rolled[0].should.equal(25);
       result.result.should.equal(25);
     });
 
