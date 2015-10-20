@@ -48,7 +48,7 @@
     it('d20', function () {
       var result = roll.roll('d20');
       result.rolled.length.should.equal(1);
-      result.rolled[0][0].should.equal(5);
+      result.rolled[0].should.equal(5);
       result.result.should.equal(5);
     });
 
@@ -61,9 +61,9 @@
 
     it('2d20', function () {
       var result = roll.roll('2d20');
-      result.rolled[0].length.should.equal(2);
-      result.rolled[0][0].should.equal(5);
-      result.rolled[0][1].should.equal(13);
+      result.rolled.length.should.equal(2);
+      result.rolled[0].should.equal(5);
+      result.rolled[1].should.equal(13);
       result.result.should.equal(18);
     });
 
