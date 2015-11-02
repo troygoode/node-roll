@@ -45,7 +45,7 @@
 
       it('2d20b1+1d4', function () {
         var result = roll.roll('2d20b1+1d4');
-        result.rolled.should.deepEqual([[13,11],[1]]);
+        result.rolled.should.eql([[13,11],[1]]);
       });
     });
 
