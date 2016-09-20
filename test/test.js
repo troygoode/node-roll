@@ -1,5 +1,5 @@
 /*jslint indent: 2*/
-/*global require: true, module: true, describe: true, it: true, beforeEach: true, __dirname: true */
+/*global require: true, module: true, describe: true, it: true, beforeEach: true, __dirname: true, console: true, process: true */
 (function () {
   'use strict';
 
@@ -13,7 +13,9 @@
       0.62, // 20 * .62 => 12.4 => 13
       0.51, // 20 * .51 => 10.2 => 11
       0.13, // 20 * .13 =>  2.6 =>  3
-      0.66  // 20 * .66 => 13.2 => 14
+      0.66, // 20 * .66 => 13.2 => 14
+      0.33, // 20 * .66 =>  6.6 =>  7
+      0.12  // 20 * .12 =>  2.4 =>  2
     ]),
     roll = new Roll(random.next.bind(random));
 
@@ -45,7 +47,7 @@
 
       it('2d20b1+1d4', function () {
         var result = roll.roll('2d20b1+1d4');
-        result.rolled.should.eql([[13,11],[1]]);
+        result.rolled.should.eql([[13, 11], [1]]);
       });
     });
 
@@ -69,6 +71,59 @@
       result.rolled[0].should.equal(5);
       result.rolled[1].should.equal(13);
       result.result.should.equal(18);
+    });
+
+    it('issue 7', function () {
+      var result = roll.roll('2d10+5');
+      console.log(result);
+    });
+
+    it('1d20+2d20', function () {
+      var result = roll.roll('1d20+2d20');
+      result.rolled.length.should.equal(2);
+      result.rolled[0][0].should.equal(11);
+      result.rolled[1][0].should.equal(5);
+      result.rolled[1][1].should.equal(13);
+      result.result.should.equal(29);
+    });
+
+    it('1d20+2d20+3d20', function () {
+      var result = roll.roll('1d20+2d20+3d20');
+      result.rolled.length.should.equal(3);
+      result.rolled[0][0].should.equal(7);
+      result.rolled[1][0].should.equal(5);
+      result.rolled[1][1].should.equal(13);
+      result.rolled[2][0].should.equal(11);
+      result.rolled[2][1].should.equal(3);
+      result.rolled[2][2].should.equal(14);
+      result.result.should.equal(53);
+    });
+
+    it('yahtzee', function () {
+      var result = roll.roll('5d6');
+      result.rolled.length.should.equal(5);
+      result.rolled[0].should.equal(2);
+      result.rolled[1].should.equal(4);
+      result.rolled[2].should.equal(4);
+      result.rolled[3].should.equal(1);
+      result.rolled[4].should.equal(4);
+      result.result.should.equal(15);
+    });
+
+    it('double yahtzee', function () {
+      var result = roll.roll('5d6+5d6');
+      result.rolled.length.should.equal(2);
+      result.rolled[0][0].should.equal(2);
+      result.rolled[0][1].should.equal(1);
+      result.rolled[0][2].should.equal(2);
+      result.rolled[0][3].should.equal(4);
+      result.rolled[0][4].should.equal(4);
+      result.rolled[1][0].should.equal(2);
+      result.rolled[1][1].should.equal(4);
+      result.rolled[1][2].should.equal(4);
+      result.rolled[1][3].should.equal(1);
+      result.rolled[1][4].should.equal(4);
+      result.result.should.equal(28);
     });
 
     it('2d20+3', function () {

@@ -1,6 +1,6 @@
 {
   "name": "roll",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Troy Goode <troygoode@gmail.com> (https://github.com/troygoode/)",
   "description": "node.js package for rolling dice and adding modifiers. ex: 2d6+1",
   "keywords": [
@@ -35,9 +35,6 @@
   "main": "./lib/index.js",
   "engines": {
     "node": ">=0.10.0"
-  },
-  "dependencies": {
-    "require-directory": "^2.0.0"
   },
   "devDependencies": {
     "lint": "^1.1.2",
