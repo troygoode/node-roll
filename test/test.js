@@ -51,6 +51,17 @@
       });
     });
 
+    describe('bug reports', function () {
+      it('issue #7', function () {
+        // https://github.com/troygoode/node-roll/issues/7
+        var result = roll.roll('2d10+5');
+        result.rolled.length.should.equal(2);
+        result.rolled[0].should.equal(3);
+        result.rolled[1].should.equal(7);
+        result.result.should.equal(15); // (3 + 7) + 5 = 15
+      });
+    });
+
     it('d20', function () {
       var result = roll.roll('d20');
       result.rolled.length.should.equal(1);
@@ -71,11 +82,6 @@
       result.rolled[0].should.equal(5);
       result.rolled[1].should.equal(13);
       result.result.should.equal(18);
-    });
-
-    it('issue 7', function () {
-      var result = roll.roll('2d10+5');
-      console.log(result);
     });
 
     it('1d20+2d20', function () {

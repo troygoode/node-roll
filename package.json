@@ -29,13 +29,12 @@
   },
   "main": "./lib/index.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "devDependencies": {
     "lint": "^1.1.2",
-    "mocha": "^1.18.2",
-    "should": "^3.3.1",
-    "srand": "^1.1.4"
+    "mocha": "^3.0.2",
+    "should": "^11.1.0"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
