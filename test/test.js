@@ -5,6 +5,7 @@
 
   var exec = require('child_process').exec,
     should = require('should'),
+    fs = require('fs'),
     Roll = require('../lib'),
     FakeRandom = require('./fake-random'),
     random = new FakeRandom([ // can only test this library if we make things not actually random
@@ -42,6 +43,10 @@
         result.result.should.equal(18);
       });
 
+      it('2d20b1+1d4', function () {
+        var result = roll.roll('2d20b1+1d4');
+        result.rolled.should.eql([[13,11],[1]]);
+      });
     });
 
     it('d20', function () {
@@ -131,7 +136,7 @@
     });
 
     it('bin/roll garbage', function (done) {
-      exec(__dirname + '/../bin/roll garbage', function (err, stdout, stderr) {
+      exec((process.platform === 'win32' ? 'node ././bin/roll' : __dirname + '/../bin/roll') + ' garbage', function (err, stdout, stderr) {
         if (err) {
           should.exist(err);
           stderr.should.eql('"garbage" is not a valid input string for node-roll.\n');
@@ -142,7 +147,7 @@
     });
 
     it('bin/roll 2d20', function (done) {
-      exec(__dirname + '/../bin/roll 2d20', function (err, stdout, stderr) {
+      exec((process.platform === 'win32' ? 'node ././bin/roll' : __dirname + '/../bin/roll') + ' 2d20', function (err, stdout, stderr) {
         if (err) {
           return done(err);
         }
@@ -153,4 +158,3 @@
 
   });
 }());
-

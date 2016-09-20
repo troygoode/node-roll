@@ -82,6 +82,8 @@ Seeing what was rolled, rather than the sum:
 ```javascript
 var yahtzee = roll.roll('5d6');
 console.log(yahtzee.rolled); //yahtzee.rolled will return something like [5, 2, 4, 6, 1] rather than the sum
+var blessedSneaker = roll.roll('2d20b1+1d4+5');
+console.log(blessedSneaker.rolled); //blessedSneaker.rolled will return an array containing an array for each component that is a roll of the dice, in the order in which they occurred, e.g. [[19,3],[1]]
 ```
 
 Getting the highest two dice of the set:
