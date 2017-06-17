@@ -23,6 +23,12 @@ $ roll d20
 15
 $ roll d%
 99
+$ roll -d 2d20
+Dice: 13, 8
+Total: 21
+$ roll --detail 5d%
+Dice: 45, 86, 86, 4, 72
+Total: 293
 ```
 
 ## How To Use (As Library)

@@ -212,10 +212,19 @@
         if (err) {
           return done(err);
         }
-        /^\d+\n$/.test(stdout).should.eql(true);
+        stdout.should.match(/^\d+\n$/);
         done();
       });
     });
 
+    it('bin/roll 2d20 with details', function (done) {
+      exec((process.platform === 'win32' ? 'node ././bin/roll' : __dirname + '/../bin/roll') + ' -d 2d20', function (err, stdout, stderr) {
+        if (err) {
+          return done(err);
+        }
+        stdout.should.match(/^Dice: (\d+)(,\s*\d+)*\nTotal: \d+\n$/);
+        done();
+      });
+    });
   });
 }());

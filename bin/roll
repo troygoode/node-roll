@@ -4,11 +4,18 @@
   'use strict';
 
   var Roll = require(__dirname + '/../lib/index'),
+    minimist = require('minimist'),
     roll = new Roll(),
-    input = process.argv.slice(2)[0];
+    args = minimist(process.argv.slice(2), { boolean: ['d', 'detail'] });
 
   try {
-    console.log(roll.roll(input).result);
+    var dice = roll.roll(args._[0])
+    if (args.d || args.detail) {
+      console.log('Dice:', dice.rolled.join(', '));
+      console.log('Total:', dice.result);
+    } else {
+      console.log(dice.result);
+    }
     process.exit(0);
   } catch (e) {
     console.error(e.message);

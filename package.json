@@ -42,5 +42,8 @@
   },
   "bin": {
     "roll": "bin/roll"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0"
   }
 }
