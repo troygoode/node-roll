@@ -47,6 +47,16 @@
         var result = roll.roll('2d20b1+1d4');
         result.rolled.should.eql([[13,11],[1]]);
       });
+
+      it('2d20b1+1d4', function () {
+        var result = roll.roll('2d20b1+1d4');
+        result.result.should.equal(14);
+      });
+ 
+      it('2d20w1+1d4', function () {
+        var result = roll.roll('2d20b1+1d4');
+        result.result.should.equal(12);
+      });
     });
 
     it('d20', function () {
