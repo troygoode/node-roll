@@ -37,7 +37,7 @@
       outsideRoll,
       seg;
 
-    if (segments[0].indexOf('b') > -1) {
+    if (segments[0].indexOf('b') > -1 || segments[0].indexOf('w') > -1) {
       transforms.push(transformationKeys[match[4]](parseInt(match[5], 10)));
     }
 

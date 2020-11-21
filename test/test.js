@@ -59,7 +59,7 @@
         result.result.should.equal(15); // (3 + 7) + 5 = 15
       });
 
-      it.skip('issue #11', function () {
+      it('issue #11', function () {
         // https://github.com/troygoode/node-roll/issues/11
         var result = roll.roll('2d20w1+5');
         result.rolled.length.should.equal(2);
@@ -183,6 +183,16 @@
       result.calculations[1][0].should.equal(3);
       result.calculations[1][1].should.equal(5);
       result.result.should.equal(8); // 3 + 5
+    });
+
+    it('2d20b1+1d4', function () {
+      var result = roll.roll('2d20b1+1d4'); // 5, 13, 11
+      result.result.should.equal(14);
+    });
+
+    it('2d20w1+1d4', function () {
+      var result = roll.roll('2d20w1+1d4'); // 5, 13, 11
+      result.result.should.equal(12);
     });
 
     it('validates input', function (done) {
