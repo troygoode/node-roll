@@ -1,4 +1,4 @@
-var roll = require("./lib/index");
+var roll = require("./src/index");
 
 var result1 = roll.roll("2d6+3"); // same as below
 var result2 = roll.roll({

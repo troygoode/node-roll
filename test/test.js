@@ -6,7 +6,7 @@
   var exec = require('child_process').exec,
     should = require('should'),
     fs = require('fs'),
-    Roll = require('../lib'),
+    Roll = require('../src'),
     FakeRandom = require('./fake-random'),
     random = new FakeRandom([ // can only test this library if we make things not actually random
       0.24, // 20 * .24 =>  4.8 =>  5

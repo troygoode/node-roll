@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  var Roll = require(__dirname + '/../lib/index'),
+  var Roll = require(__dirname + '/../src/index'),
     roll = new Roll(),
     input = process.argv.slice(2)[0];
 
