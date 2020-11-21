@@ -16,7 +16,7 @@
       0.12  // 20 * .12 =>  2.4 =>  2
     ]);
 
-  describe('roll', function () {
+  describe('bin/roll', function () {
 
     beforeEach(random.reset.bind(random));
 
@@ -36,8 +36,17 @@
         if (err) {
           return done(err);
         }
-        console.log(stdout);
         /^\d+\n$/.test(stdout).should.eql(true);
+        done();
+      });
+    });
+
+    it('bin/roll -d 2d20', function (done) {
+      exec((process.platform === 'win32' ? 'node ././bin/roll' : __dirname + '/../bin/roll') + ' -d 2d20', function (err, stdout, stderr) {
+        if (err) {
+          return done(err);
+        }
+        stdout.should.match(/^Dice: (\d+)(,\s*\d+)*\nTotal: \d+\n$/);
         done();
       });
     });
