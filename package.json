@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "lint": "^1.1.2",
-    "mocha": "^3.0.2",
+    "mocha": "^8.2.1",
     "should": "^11.1.0"
   },
   "scripts": {
