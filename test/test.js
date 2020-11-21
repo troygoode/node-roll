@@ -3,10 +3,8 @@
 (function () {
   'use strict';
 
-  var exec = require('child_process').exec,
+  var Roll = require('../src'),
     should = require('should'),
-    fs = require('fs'),
-    Roll = require('../src'),
     FakeRandom = require('./fake-random'),
     random = new FakeRandom([ // can only test this library if we make things not actually random
       0.24, // 20 * .24 =>  4.8 =>  5
@@ -61,10 +59,9 @@
         result.result.should.equal(15); // (3 + 7) + 5 = 15
       });
 
-      it('issue #11', function () {
+      it.skip('issue #11', function () {
         // https://github.com/troygoode/node-roll/issues/11
         var result = roll.roll('2d20w1+5');
-        console.log(result);
         result.rolled.length.should.equal(2);
         result.rolled[0].should.equal(5);
         result.rolled[1].should.equal(13);
@@ -204,27 +201,6 @@
     it('exposes validation', function () {
       roll.validate('2d20+3').should.equal(true);
       roll.validate('garbage').should.equal(false);
-    });
-
-    it('bin/roll garbage', function (done) {
-      exec((process.platform === 'win32' ? 'node ././bin/roll' : __dirname + '/../bin/roll') + ' garbage', function (err, stdout, stderr) {
-        if (err) {
-          should.exist(err);
-          stderr.should.eql('"garbage" is not a valid input string for node-roll.\n');
-          return done();
-        }
-        done('Should not be reachable.');
-      });
-    });
-
-    it('bin/roll 2d20', function (done) {
-      exec((process.platform === 'win32' ? 'node ././bin/roll' : __dirname + '/../bin/roll') + ' 2d20', function (err, stdout, stderr) {
-        if (err) {
-          return done(err);
-        }
-        /^\d+\n$/.test(stdout).should.eql(true);
-        done();
-      });
     });
 
   });
