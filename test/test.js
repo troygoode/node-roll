@@ -60,6 +60,16 @@
         result.rolled[1].should.equal(7);
         result.result.should.equal(15); // (3 + 7) + 5 = 15
       });
+
+      it('issue #11', function () {
+        // https://github.com/troygoode/node-roll/issues/11
+        var result = roll.roll('2d20w1+5');
+        console.log(result);
+        result.rolled.length.should.equal(2);
+        result.rolled[0].should.equal(5);
+        result.rolled[1].should.equal(13);
+        result.result.should.equal(10); // worst(5, 13) + 5 = 5 + 5 = 10
+      });
     });
 
     it('d20', function () {
