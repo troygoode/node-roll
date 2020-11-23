@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/TroyGoode/node-roll/issues"
   },
-  "main": "./lib/index.js",
+  "main": "./src/index.js",
   "engines": {
     "node": ">=4"
   },
