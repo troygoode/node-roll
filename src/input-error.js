@@ -1,16 +1,17 @@
-/*jslint indent: 2*/
-/*global require: true, module: true*/
 (function () {
-  'use strict';
+  "use strict";
 
-  var util = require('util');
+  var util = require("util");
 
   function InvalidInputError(input) {
-    this.name = 'InvalidInputError';
+    this.name = "InvalidInputError";
     if (input) {
-      this.message = util.format('"%s" is not a valid input string for node-roll.', input);
+      this.message = util.format(
+        '"%s" is not a valid input string for node-roll.',
+        input,
+      );
     } else {
-      this.message = 'No input string was supplied to node-roll.';
+      this.message = "No input string was supplied to node-roll.";
     }
     this.input = input;
   }
@@ -19,6 +20,4 @@
   InvalidInputError.prototype.constructor = InvalidInputError;
 
   module.exports = InvalidInputError;
-
-}());
-
+})();

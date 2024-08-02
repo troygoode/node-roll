@@ -32,18 +32,18 @@
     "node": ">=4"
   },
   "devDependencies": {
-    "lint": "^1.1.2",
-    "mocha": "^8.2.1",
-    "should": "^11.1.0"
+    "prettier": "^3.3.3",
+    "mocha": "^10.7.0",
+    "should": "^13.2.3"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
-    "lint": "./node_modules/lint/bin/node-lint lib test"
+    "test": "./node_modules/.bin/_mocha",
+    "prettier": "./node_modules/.bin/prettier package.json bin/roll \"{example,src,test}/**/*.js\" --write"
   },
   "bin": {
     "roll": "bin/roll"
   },
   "dependencies": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.8"
   }
 }

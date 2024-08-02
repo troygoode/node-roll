@@ -1,7 +1,5 @@
-/*jslint indent: 2*/
-/*global require: true, module: true, describe: true, it: true, beforeEach: true */
 (function () {
-  'use strict';
+  "use strict";
 
   var FakeRandomNumberGenerator = function (numbers) {
     this.pointer = 0;
@@ -21,6 +19,4 @@
   };
 
   module.exports = FakeRandomNumberGenerator;
-
-}());
-
+})();

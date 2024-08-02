@@ -4,8 +4,6 @@ Roll is a node.js package for rolling dice and adding modifiers (such as "2d6+1"
 
 [![NPM](https://nodei.co/npm/roll.png?downloads=true&stars=true)](https://nodei.co/npm/roll/)
 
-[![build status](https://secure.travis-ci.org/troygoode/node-roll.png)](http://travis-ci.org/troygoode/node-roll)
-
 ## How To Use (From Shell)
 
 ### Installation (via [npm](https://npmjs.org/package/roll))
