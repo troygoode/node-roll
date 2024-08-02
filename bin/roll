@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
 (function () {
-  'use strict';
+  "use strict";
 
-  var Roll = require(__dirname + '/../src/index'),
-    minimist = require('minimist'),
+  var Roll = require(__dirname + "/../src/index"),
+    minimist = require("minimist"),
     roll = new Roll(),
-    args = minimist(process.argv.slice(2), { boolean: ['d', 'detail'] });
+    args = minimist(process.argv.slice(2), { boolean: ["d", "detail"] });
 
   try {
-    var dice = roll.roll(args._[0])
+    var dice = roll.roll(args._[0]);
     if (args.d || args.detail) {
-      console.log('Dice:', dice.rolled.join(', '));
-      console.log('Total:', dice.result);
+      console.log("Dice:", dice.rolled.join(", "));
+      console.log("Total:", dice.result);
     } else {
       console.log(dice.result);
     }
@@ -21,6 +21,4 @@
     console.error(e.message);
     process.exit(1);
   }
-
-}());
-
+})();

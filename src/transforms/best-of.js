@@ -1,7 +1,5 @@
-/*jslint indent: 2*/
-/*global require: true, module: true*/
 (function () {
-  'use strict';
+  "use strict";
 
   module.exports = function (rolledDice, value) {
     var result = [],
@@ -9,11 +7,9 @@
         return b - a;
       }),
       i;
-    for (i = 0; i < sorted.length && i < (value / 1); i = i + 1) {
+    for (i = 0; i < sorted.length && i < value / 1; i = i + 1) {
       result.push(sorted[i]);
     }
     return result;
   };
-
-}());
-
+})();
